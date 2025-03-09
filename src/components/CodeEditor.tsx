@@ -95,7 +95,28 @@ export function CodeEditor({ value, onChange }: CodeEditorProps) {
         defaultLanguage="javascript"
         defaultValue={editorDefaultValue}
         theme="vs-dark"
-        options={monacoOptions}
+        options={{
+          fontSize: 14,
+          fontFamily: 'SF Mono, Monaco, Menlo, Consolas, monospace',
+          fontLigatures: true,
+          lineHeight: 24,
+          minimap: { enabled: false },
+          scrollBeyondLastLine: false,
+          renderLineHighlight: 'all',
+          scrollbar: {
+            verticalScrollbarSize: 10,
+            horizontalScrollbarSize: 10,
+            useShadows: false,
+          },
+          padding: { top: 16, bottom: 16 },
+          cursorBlinking: 'smooth',
+          cursorSmoothCaretAnimation: 'on',
+          formatOnType: true,
+          formatOnPaste: true,
+          automaticLayout: true,
+          tabSize: 2,
+          wordWrap: 'on' as const // Fix for TypeScript error
+        }}
         onMount={handleEditorDidMount}
         value={value}
         onChange={(value) => onChange(value || '')}

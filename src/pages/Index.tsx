@@ -7,10 +7,12 @@ import { useCodeExecution } from '@/hooks/useCodeExecution';
 import { editorDefaultValue } from '@/utils/monacoConfig';
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Index = () => {
   const [code, setCode] = useState(editorDefaultValue);
   const { executeCode, clearConsole, consoleOutput, isExecuting } = useCodeExecution();
+  const isMobile = useIsMobile();
 
   const handleRunCode = () => {
     executeCode(code);
@@ -26,7 +28,7 @@ const Index = () => {
       <Header onRunCode={handleRunCode} isExecuting={isExecuting} />
       
       <ResizablePanelGroup
-        direction="horizontal"
+        direction={isMobile ? "vertical" : "horizontal"}
         className="flex-1"
       >
         <ResizablePanel defaultSize={50} minSize={30}>
