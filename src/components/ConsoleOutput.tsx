@@ -34,9 +34,9 @@ export function ConsoleOutput({ output, onClear }: ConsoleOutputProps) {
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.3, delay: 0.2 }}
-      className="flex flex-col h-full bg-console-background"
+      className="flex flex-col h-full"
     >
-      <div className="flex items-center justify-between px-4 py-2 border-b border-border">
+      <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-background/20 backdrop-blur-sm">
         <h2 className="text-sm font-medium">Console Output</h2>
         <Button
           variant="ghost"
@@ -69,7 +69,7 @@ export function ConsoleOutput({ output, onClear }: ConsoleOutputProps) {
                   item.type === 'error'
                     ? 'console-text-error'
                     : item.type === 'warn'
-                    ? 'text-yellow-600 dark:text-yellow-400'
+                    ? 'text-amber-500 dark:text-amber-400'
                     : item.type === 'info'
                     ? 'console-text-info'
                     : item.type === 'clear'

@@ -21,7 +21,7 @@ const Index = () => {
 
   return (
     <motion.div 
-      className="flex flex-col h-screen overflow-hidden pb-10" // Added padding-bottom for the footer
+      className="flex flex-col h-screen overflow-hidden pb-10"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -32,13 +32,13 @@ const Index = () => {
         direction={isMobile ? "vertical" : "horizontal"}
         className="flex-1"
       >
-        <ResizablePanel defaultSize={50} minSize={30}>
+        <ResizablePanel defaultSize={50} minSize={30} className="bg-editor-background">
           <CodeEditor value={code} onChange={setCode} />
         </ResizablePanel>
         
-        <ResizableHandle withHandle />
+        <ResizableHandle withHandle className="bg-border" />
         
-        <ResizablePanel defaultSize={50} minSize={30}>
+        <ResizablePanel defaultSize={50} minSize={30} className="bg-console-background">
           <ConsoleOutput output={consoleOutput} onClear={clearConsole} />
         </ResizablePanel>
       </ResizablePanelGroup>

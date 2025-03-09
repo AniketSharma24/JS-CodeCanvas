@@ -21,7 +21,18 @@ export function CodeEditor({ value, onChange }: CodeEditorProps) {
     monaco.editor.defineTheme('lightCustom', {
       base: 'vs',
       inherit: true,
-      rules: [],
+      rules: [
+        { token: 'comment', foreground: '6e7781', fontStyle: 'italic' },
+        { token: 'keyword', foreground: 'cf222e' },
+        { token: 'string', foreground: '0a3069' },
+        { token: 'number', foreground: '0550ae' },
+        { token: 'regexp', foreground: '116329' },
+        { token: 'type', foreground: '8250df' },
+        { token: 'class', foreground: '953800' },
+        { token: 'function', foreground: '8250df' },
+        { token: 'variable', foreground: '24292f' },
+        { token: 'variable.predefined', foreground: '116329' },
+      ],
       colors: {
         'editor.background': '#F8FAFC',
         'editor.foreground': '#1E293B',
@@ -36,15 +47,26 @@ export function CodeEditor({ value, onChange }: CodeEditorProps) {
     monaco.editor.defineTheme('darkCustom', {
       base: 'vs-dark',
       inherit: true,
-      rules: [],
+      rules: [
+        { token: 'comment', foreground: '8b949e', fontStyle: 'italic' },
+        { token: 'keyword', foreground: 'ff7b72' },
+        { token: 'string', foreground: 'a5d6ff' },
+        { token: 'number', foreground: '79c0ff' },
+        { token: 'regexp', foreground: '7ee787' },
+        { token: 'type', foreground: 'ff7b72' },
+        { token: 'class', foreground: 'ffa657' },
+        { token: 'function', foreground: 'd2a8ff' },
+        { token: 'variable', foreground: 'c9d1d9' },
+        { token: 'variable.predefined', foreground: '7ee787' },
+      ],
       colors: {
-        'editor.background': '#1E293B',
-        'editor.foreground': '#F8FAFC',
-        'editor.lineHighlightBackground': '#334155',
-        'editorCursor.foreground': '#60A5FA',
-        'editorWhitespace.foreground': '#475569', 
-        'editorIndentGuide.background': '#334155',
-        'editor.selectionBackground': '#3B82F6',
+        'editor.background': '#111827',
+        'editor.foreground': '#E5E7EB',
+        'editor.lineHighlightBackground': '#1F2937',
+        'editorCursor.foreground': '#3B82F6',
+        'editorWhitespace.foreground': '#4B5563',
+        'editorIndentGuide.background': '#374151',
+        'editor.selectionBackground': '#2563EB40',
       },
     });
 
@@ -115,7 +137,9 @@ export function CodeEditor({ value, onChange }: CodeEditorProps) {
           formatOnPaste: true,
           automaticLayout: true,
           tabSize: 2,
-          wordWrap: 'on' as const // Fix for TypeScript error
+          wordWrap: 'on',
+          smoothScrolling: true,
+          renderWhitespace: 'selection'
         }}
         onMount={handleEditorDidMount}
         value={value}
