@@ -3,7 +3,6 @@ import { ThemeToggle } from "./ThemeToggle";
 import { Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 
 interface HeaderProps {
   onRunCode: () => void;
@@ -33,15 +32,7 @@ export function Header({ onRunCode, isExecuting }: HeaderProps) {
         <span>Run</span>
       </Button>
       
-      <div className="flex items-center gap-4">
-        <Link 
-          to="https://github.com/aniket-sharma" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-        >
-          Made by Aniket Sharma
-        </Link>
+      <div className="flex items-center">
         <ThemeToggle />
       </div>
     </motion.header>

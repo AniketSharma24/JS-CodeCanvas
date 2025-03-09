@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
 import { CodeEditor } from '@/components/CodeEditor';
 import { ConsoleOutput } from '@/components/ConsoleOutput';
 import { useCodeExecution } from '@/hooks/useCodeExecution';
@@ -20,7 +21,7 @@ const Index = () => {
 
   return (
     <motion.div 
-      className="flex flex-col h-screen overflow-hidden"
+      className="flex flex-col h-screen overflow-hidden pb-10" // Added padding-bottom for the footer
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -41,6 +42,8 @@ const Index = () => {
           <ConsoleOutput output={consoleOutput} onClear={clearConsole} />
         </ResizablePanel>
       </ResizablePanelGroup>
+      
+      <Footer />
     </motion.div>
   );
 };
