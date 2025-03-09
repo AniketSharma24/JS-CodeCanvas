@@ -1,13 +1,45 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useState } from 'react';
+import { Header } from '@/components/Header';
+import { CodeEditor } from '@/components/CodeEditor';
+import { ConsoleOutput } from '@/components/ConsoleOutput';
+import { useCodeExecution } from '@/hooks/useCodeExecution';
+import { editorDefaultValue } from '@/utils/monacoConfig';
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
+import { motion } from 'framer-motion';
 
 const Index = () => {
+  const [code, setCode] = useState(editorDefaultValue);
+  const { executeCode, clearConsole, consoleOutput, isExecuting } = useCodeExecution();
+
+  const handleRunCode = () => {
+    executeCode(code);
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <motion.div 
+      className="flex flex-col h-screen overflow-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <Header onRunCode={handleRunCode} isExecuting={isExecuting} />
+      
+      <ResizablePanelGroup
+        direction="horizontal"
+        className="flex-1"
+      >
+        <ResizablePanel defaultSize={50} minSize={30}>
+          <CodeEditor value={code} onChange={setCode} />
+        </ResizablePanel>
+        
+        <ResizableHandle withHandle />
+        
+        <ResizablePanel defaultSize={50} minSize={30}>
+          <ConsoleOutput output={consoleOutput} onClear={clearConsole} />
+        </ResizablePanel>
+      </ResizablePanelGroup>
+    </motion.div>
   );
 };
 
