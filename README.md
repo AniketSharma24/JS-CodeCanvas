@@ -1,3 +1,84 @@
+
+# CodeCanvas - Online JavaScript Editor & Compiler
+
+![CodeCanvas Preview](public/og-image.png)
+
+## About
+
+CodeCanvas is a lightweight, browser-based JavaScript editor and compiler that allows you to write, test, and run JavaScript code in real-time. Perfect for quick prototyping, learning, or debugging JavaScript snippets without the need for a local development environment.
+
+## Features
+
+- **Real-time JavaScript Execution** - Write and run JavaScript code directly in your browser
+- **Live Console Output** - View console logs, warnings, errors, and other outputs in real-time
+- **Elegant Interface** - Clean, distraction-free coding environment with light/dark theme support
+- **Responsive Design** - Optimized for both desktop and mobile devices
+- **Monaco Editor Integration** - Powerful code editing features including syntax highlighting and auto-completion
+
+## Technology Stack
+
+- **Frontend Framework**: React with TypeScript for type-safe component development
+- **Build Tool**: Vite for fast development and optimized production builds
+- **Styling**: Tailwind CSS for utility-first styling with custom theming
+- **UI Components**: shadcn/ui for accessible, customizable, and reusable components
+- **Code Editor**: Monaco Editor (via @monaco-editor/react) - the same editor that powers VS Code
+- **State Management**: React hooks for local state management
+- **Animation**: Framer Motion for smooth, physics-based animations
+- **Responsive Layout**: React Resizable Panels for adjustable editor and console panels
+- **Routing**: React Router for navigation and route management
+- **Toast Notifications**: sonner for elegant toast notifications
+
+## Project Structure
+
+- `src/components/` - React components including the code editor and console output
+- `src/hooks/` - Custom React hooks for code execution, theme management, and more
+- `src/pages/` - Page-level components for different routes
+- `src/utils/` - Utility functions and configuration
+- `src/components/ui/` - shadcn/ui components
+
+## Local Development
+
+To run this project locally:
+
+```sh
+# Clone the repository
+git clone <repository-url>
+
+# Navigate to the project directory
+cd codecanvas
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+## Usage
+
+1. Write your JavaScript code in the editor panel
+2. Click the "Run" button or use keyboard shortcuts to execute the code
+3. View the console output in the right panel (or bottom panel on mobile)
+4. Toggle between light and dark themes with the theme switch button
+
+## Future Enhancements
+
+- Multi-file support for more complex projects
+- Code sharing via URL
+- Additional language support (TypeScript, HTML/CSS)
+- Save and load code snippets
+- Integration with external libraries and frameworks
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Author
+
+Created by [Aniket Sharma](https://github.com/aniket-sharma)
+
+---
+
 # Welcome to your Lovable project
 
 ## Project info
@@ -49,16 +130,6 @@ npm run dev
 - Select the "Codespaces" tab.
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
 
 ## How can I deploy this project?
 
